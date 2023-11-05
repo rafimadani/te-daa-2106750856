@@ -73,10 +73,10 @@ def read_numbers_from_file(file_path):
         numbers = [int(line.strip()) for line in file]
     return numbers
 
-file_path = ['/Users/rafimadani/Downloads/dataset_200_random.txt', '/Users/rafimadani/Downloads/dataset_2000_random.txt', '/Users/rafimadani/Downloads/dataset_20000_random.txt',
-             '/Users/rafimadani/Downloads/dataset_200_sorted.txt', '/Users/rafimadani/Downloads/dataset_2000_sorted.txt', '/Users/rafimadani/Downloads/dataset_20000_sorted.txt',
-             '/Users/rafimadani/Downloads/dataset_200_reversed.txt', '/Users/rafimadani/Downloads/dataset_2000_reversed.txt', '/Users/rafimadani/Downloads/dataset_20000_reversed.txt'
-             ] # Replace with the actual path of your file
+file_path = ['dataset_200_random.txt', 'dataset_2000_random.txt', 'dataset_20000_random.txt',
+             'dataset_200_sorted.txt', 'dataset_2000_sorted.txt', 'dataset_20000_sorted.txt',
+             'dataset_200_reversed.txt', 'dataset_2000_reversed.txt', 'dataset_20000_reversed.txt'
+             ]
 
 # Read numbers from the file
 for i in range(len(file_path)):
