@@ -1,14 +1,9 @@
 import time
+import psutil 
+import resource
+
 def clustered_binary_insertion_sort(input_list):
-    """
-    Sorts the given input list using the Clustered Binary Insertion Sort algorithm.
-
-    Args:
-        input_list: A list of elements to be sorted.
-
-    Returns:
-        A sorted list.
-    """
+    
 
     # Initialize the position pointer.
     pop = 0
@@ -44,19 +39,7 @@ def clustered_binary_insertion_sort(input_list):
 
 
 def binary_loc_finder(input_list, start, end, key):
-    """
-    Finds the correct insertion position for the given key in the given input list using the binary search algorithm.
-
-    Args:
-        input_list: A list of elements to search.
-        start: The start index of the search range.
-        end: The end index of the search range.
-        key: The key to search for.
-
-    Returns:
-        The index of the correct insertion position for the key.
-    """
-
+    
     while start <= end:
         middle = (start + end) // 2
 
@@ -71,17 +54,7 @@ def binary_loc_finder(input_list, start, end, key):
 
 
 def place_inserter(input_list, position, cop):
-    """
-    Inserts the element at the given cop position in the given input list at the given position.
-
-    Args:
-        input_list: A list of elements to insert the element at.
-        position: The index of the position to insert the element at.
-        cop: The index of the element to be inserted.
-
-    Returns:
-        A list with the element inserted at the given position.
-    """
+    
 
     temp = input_list[cop]
     for j in range(cop, position, -1):
@@ -100,7 +73,7 @@ def read_numbers_from_file(file_path):
 file_path = ['dataset_200_random.txt', 'dataset_2000_random.txt', 'dataset_20000_random.txt',
              'dataset_200_sorted.txt', 'dataset_2000_sorted.txt', 'dataset_20000_sorted.txt',
              'dataset_200_reversed.txt', 'dataset_2000_reversed.txt', 'dataset_20000_reversed.txt'
-             ] # Replace with the actual path of your file
+             ] 
 
 # Read numbers from the file
 for i in range(len(file_path)):
@@ -115,7 +88,10 @@ for i in range(len(file_path)):
         sorted_list = clustered_binary_insertion_sort(input_list)
         end_time = time.time()
         execution_time_cbis = (end_time - start_time) * 1000  # Konversi ke milliseconds
+        memory_usage = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024 
         if i%3 == 0 : jumlah_data = 200
         elif i%3 == 1 : jumlah_data = 2000
         if i%3 == 2 : jumlah_data = 20000
         print(f"Execution time (CBIS) {status} {jumlah_data} angka : {execution_time_cbis} ms")
+        print(f"Memory usage (CBIS) {status} {jumlah_data} angka : {memory_usage} ")
+        memory_usage = 0

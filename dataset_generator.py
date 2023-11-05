@@ -16,7 +16,7 @@ def generate_dataset(size, mode):
 sizes = [200, 2000, 20000]
 modes = ['sorted', 'random', 'reversed']
 
-output_directory = "/Users/rafimadani/Downloads/"  # Change this to your desired output directory
+output_directory = "/Users/rafimadani/Documents/te-daa-2106750856" 
 
 for size in sizes:
     for mode in modes:
